@@ -68,6 +68,13 @@ input.code{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase
 .st.cur .lbl{fill:var(--acc2)}
 .st.lock{opacity:.55;cursor:default}
 .st.gate circle.ring{stroke:var(--danger);stroke-dasharray:6 4}
+.st.hq circle.ring{fill:#2a0f1a;stroke:var(--danger);stroke-width:4}
+.st.hq.cur circle.ring{fill:#4a1020;animation:pulse 1.4s infinite}
+.st.hq.emerg{opacity:.75;cursor:pointer}
+.st.hq.done circle.ring{fill:#1c3b14;stroke:var(--acc)}
+.st.hq text{font-size:22px}
+.st.hq text.lbl{font-size:15px;fill:var(--danger)}
+.st.hq.done text.lbl{fill:var(--acc)}
 @keyframes pulse{0%,100%{stroke-width:3}50%{stroke-width:8}}
 .mono{font-family:var(--mono)}
 pre.src{font-family:var(--mono);font-size:.82rem;background:#0a0d1e;color:#cfe3ff;border:1px solid var(--line);border-radius:10px;padding:12px;overflow-x:auto;margin:0;white-space:pre}
@@ -225,35 +232,35 @@ const LEVELS=[
  hints:['Klick auf «Metadaten anzeigen».','Schau bei GPS und Ort.','Schau auf die Zeile «Ort (aus GPS)». Es ist der Badeplatz am See, gib nur das Wort ein, das die Fällander dafür benutzen.'],
  merke:'Fotos vom Handy enthalten oft Ort (GPS), Zeit und Gerät. Wer ein Foto postet, verrät vielleicht, wo er wohnt oder gerade ist. Viele Apps entfernen diese Daten beim Hochladen, aber nicht alle. Prüfe das, bevor du etwas teilst.',
  placeholder:'Ort', label:'Wo ist der Treffpunkt?'},
-{n:8,name:'Fussballplatz',letter:'H',x:600,y:130,topic:'Zugriffskontrolle',
+{n:8,name:'Fussballplatz',letter:'A',x:600,y:130,topic:'Zugriffskontrolle',
  story:'Der Zombie-Computer des Fussballclubs zeigt Spielerprofile, verwaltet von Präsident <b>Heinz</b>. Der Reinigungs-Code steht auf der privaten Seite des <b>Trainers</b>. Es gibt aber keinen Link dorthin. Schau dir die Adresse im Browser genau an. Was passiert, wenn du die Zahl änderst?',
  answers:['17d8dcc70be85d5d50586ee8a725d43acf06a7608feb3d579839dddf888cb43d'],
  hints:['Die Adresse endet mit <span class="mono">id=7</span>. Ändere die Zahl und drücke Enter.','Der Trainer hat die kleinste Nummer von allen.','Probier <span class="mono">id=1</span>. Der Code steht in der privaten Notiz des Trainers.'],
  merke:'Das nennt man «Broken Access Control»: Die Webseite prüft nicht, ob du eine Seite wirklich sehen darfst. Das ist einer der häufigsten Fehler im Internet. Wichtig: Auf echten Webseiten darf man so etwas nur mit Erlaubnis des Besitzers testen.',
  placeholder:'Code', label:'Reinigungs-Code'},
-{n:9,name:'Altersheim',letter:'U',x:640,y:540,topic:'Kodierung vs. Verschlüsselung',
+{n:9,name:'Altersheim',letter:'N',x:640,y:540,topic:'Kodierung vs. Verschlüsselung',
  story:'Heimleiterin <b>Margrit</b> hat es bemerkt: Der Zombie-Computer des Altersheims schickt dem Angreifer Nachrichten. Sie sehen verschlüsselt aus: <span class="mono">R0xPQ0tF</span>. Aber ist das wirklich Verschlüsselung? Oder nur eine andere Schreibweise (Kodierung), die jeder zurückrechnen kann?',
  answers:['6503a0d32d4d6bdd28e939131535c93bd1ef8a35f6d80e0296231b59ea956bf6'],
  hints:['Das ist <b>Base64</b>, eine Kodierung. Es gibt keinen Schlüssel, jeder kann sie zurückrechnen.','Tipp den Text in den Base64-Dekodierer.','Tipp genau <span class="mono">R0xPQ0tF</span> in den Dekodierer und klick auf «Dekodieren». Das Ergebnis ist die Lösung.'],
  merke:'Kodierung (z.B. Base64) ist nur eine andere Schreibweise, ohne Schlüssel. Verschlüsselung ist ohne den Schlüssel unlesbar. Angreifer tarnen ihre Daten oft nur mit Kodierung. Echte Profis lassen sich davon nicht täuschen.',
  placeholder:'Nachricht', label:'Was steht in der Nachricht?'},
-{n:10,name:'Badi',letter:'T',x:880,y:860,topic:'Social Engineering',
+{n:10,name:'Badi',letter:'N',x:880,y:860,topic:'Social Engineering',
  story:'Am Treffpunkt in der Badi meldet sich «Kevin» per Chat. Er behauptet, vom IT-Support zu sein. Er will nicht den Computer hacken, sondern <b>dich</b>. Wähle in jeder Runde die richtige Antwort.',
  answers:[],
  hints:['Echte Hilfe fragt nie nach deinem Passwort.','Zeitdruck und Behauptungen wie «ich bin ein Freund von deinem Papa» sind Tricks. Prüfe immer selbst nach.','Richtig sind immer die Antworten, bei denen du nichts verrätst und selbst nachfragst.'],
  merke:'Social Engineering heisst: Menschen austricksen statt Computer. Die Abwehr: Nie Passwörter weitergeben. Wenn jemand Druck macht, langsam werden. Immer auf dem bekannten Weg nachfragen (Lehrerin, Eltern, die echte Telefonnummer).',
  chat:true},
-{n:11,name:'Restaurant Sternen',letter:'Z',x:250,y:700,topic:'Hashes',
+{n:11,name:'Restaurant Sternen',letter:'E',x:250,y:700,topic:'Hashes',
  story:'Der Zombie-Computer speichert Passwörter nicht im Klartext, sondern als <b>Fingerabdruck</b> (Hash). Einen Hash kann man nicht zurückrechnen. Aber man kann raten: Tipp berechnen, vergleichen. In einer Notiz steht: «Wirt <b>Sepp</b> vergisst sein Passwort ständig, darum nimmt er immer etwas aus dem Restaurant: Teller, Gabel, Rösti, Kuchen oder Suppe.»',
  answers:['4e91efd7d3748a5b4d3c8d56a061787175ea4819b7471af1a9a61a44c6176259'],
  hints:['Probier die Wörter aus der Notiz im Hash-Rechner, eines nach dem anderen.','Schreib die Wörter klein. Umlaute wie ö kannst du als ö oder oe schreiben, beides geht.','Man kann es essen.'],
  merke:'Gute Webseiten speichern nie dein Passwort, nur den Hash. Wird die Webseite gehackt, sehen die Angreifer nur Fingerabdrücke. Aber: Bei leicht zu ratenden Passwörtern hilft auch der beste Hash nichts. Übrigens sind alle Lösungen in diesem Spiel genau so gespeichert.',
  placeholder:'Passwort', label:'Admin-Passwort'},
-{n:12,name:'Blitzstein',letter:'',x:200,y:860,topic:'Endgegner',
- story:'Tief im Fällander Tobel, beim Blitzstein, steht der Computer, der alle Zombies steuert. Förster <b>Fredi</b> hat ihn gefunden. Zuerst müsst ihr im Logbuch herausfinden, von welcher <b>IP-Adresse</b> der Angreifer kam: Er hat um Mitternacht so lange Anmeldungen probiert, bis eine geklappt hat. Dann gebt ihr den Anti-Virus-Code aus euren 11 Buchstaben ein.',
- answers:['c391c553191e7bea2a4a0575925f6973b7e7457d9e868a62b8025c02c359490a'],
+{n:12,name:'Blitzstein',letter:'R',x:200,y:860,topic:'Endgegner',
+ story:'Tief im Fällander Tobel, beim Blitzstein, steht der Computer, der alle Zombies steuert. Förster <b>Fredi</b> hat ihn gefunden. Zuerst müsst ihr im Logbuch herausfinden, von welcher <b>IP-Adresse</b> der Angreifer kam: Er hat um Mitternacht so lange Anmeldungen probiert, bis eine geklappt hat. Dafür gibt es den letzten Buchstaben. Dann geht es zurück ins Dorf: In der <b>Turnhalle</b> wartet die Cyber-Abwehr-Zentrale auf den Anti-Virus-Code.',
+ answers:['2805c77740c3ab8b966388a66a625e94a08a67b93ed1ef94922fca0d20c92118'],
  ip:['4e06b6081f1e36cc02157728436e8e2b4c35ecdd475cfabf21c86462946c0741'],
- hints:['Suche im Logbuch nach «FEHLER». Welche Adresse kommt immer wieder vor?','Die Adresse beginnt mit <span class="mono">10.0.0.</span>','Die IP ist die einzige, die sechsmal hintereinander FEHLER hat und danach OK. Der Code sind eure 11 Buchstaben in der Reihenfolge der Stationen 1 bis 11, sie ergeben ein deutsches Wort gegen Viren.'],
+ hints:['Suche im Logbuch nach «FEHLER». Welche Adresse kommt immer wieder vor?','Die Adresse beginnt mit <span class="mono">10.0.0.</span>','Die IP ist die einzige, die sechsmal hintereinander FEHLER hat und danach OK. Der Code sind eure 12 Buchstaben in der Reihenfolge der Stationen 1 bis 12, sie ergeben ein deutsches Wort für ein Programm gegen Viren.'],
  merke:'Logbücher (Logs) sind die wichtigste Spur für Sicherheits-Teams. Jede Anmeldung, jeder Fehler wird aufgeschrieben. Viele fehlgeschlagene Versuche von einer Adresse heissen fast immer: Hier probiert jemand Passwörter durch.',
  boss:true}
 ];
@@ -288,7 +295,7 @@ function renderStart(){
  <div class="center stack"><p class="eyebrow">Cyber-Abwehr Fällanden</p><h1>Zombie-Nacht in Fällanden</h1><p class="small">Eine digitale Schatzsuche für die Cyber-Abwehr</p></div>
  <div class="card">
   <p class="story">Halloween-Nacht in Fällanden. Um Mitternacht ist etwas schiefgelaufen: Ein Computervirus hat sich im Dorf ausgebreitet. <b>12 Computer sind jetzt Zombie-Computer.</b> Sie gehorchen nicht mehr ihren Besitzern, sondern einem unbekannten Angreifer. Zusammen bilden sie ein <b>Botnetz</b>.</p>
-  <p>Ihr gehört zur <b>Cyber-Abwehr Fällanden</b>. Die Besitzer haben euch um Hilfe gebeten, ihr dürft also ran. Reinigt alle 12 Computer. Jede Station gibt euch einen Buchstaben des <b>Anti-Virus-Codes</b>. Mit dem ganzen Code besiegt ihr am Blitzstein den Virus.</p>
+  <p>Ihr gehört zur <b>Cyber-Abwehr Fällanden</b>. Die Besitzer haben euch um Hilfe gebeten, ihr dürft also ran. Reinigt alle 12 Computer. Jede Station gibt euch einen Buchstaben des <b>Anti-Virus-Codes</b>. Mit dem ganzen Code besiegt ihr den Virus von der Zentrale in der Turnhalle aus.</p>
   <div class="stack"><p class="eyebrow">Einsatzbefehl Station 1 · ${LEVELS[0].topic}</p><p class="story">${LEVELS[0].story}</p></div>
   <div class="task">
    <label class="eyebrow" for="team">Euer Team-Name</label>
@@ -320,7 +327,7 @@ function renderStart(){
 
 // ---------- map ----------
 function mapSVG(){
- const path=LEVELS.map((l,i)=>(i?'L':'M')+l.x+' '+l.y).join(' ');
+ const HQ={x:690,y:745,name:'Turnhalle'};const path=LEVELS.map((l,i)=>(i?'L':'M')+l.x+' '+l.y).join(' ')+' L '+HQ.x+' '+HQ.y;
  let stars='';for(let i=0;i<70;i++){const x=(i*137)%1000,y=(i*89)%300;stars+=`<circle cx="${x}" cy="${y}" r="${1+(i%3)*.6}" fill="#fff" opacity="${.3+(i%5)*.12}"/>`}
  let trees='';for(let i=0;i<40;i++){const x=40+(i*73)%330,y=720+(i*47)%200;trees+=`<circle cx="${x}" cy="${y}" r="${14+(i%4)*4}" fill="#0f2a1a" stroke="#1a4a2c" stroke-width="2"/>`}
  let fields='';for(let i=0;i<5;i++){fields+=`<rect x="${120+i*170}" y="40" width="150" height="200" rx="6" fill="#0f2320" stroke="#1d4038" stroke-width="2"/>`}
@@ -341,6 +348,7 @@ function mapSVG(){
  <path d="${path}" fill="none" stroke="#ffb347" stroke-width="3" stroke-dasharray="4 10" stroke-linecap="round" opacity=".8"/>
  ${LEVELS.map(l=>{const i=l.n-1;let cls='st';if(i<S.done)cls+=' done';else if(i===S.done){cls+=(S.gate<Math.min(S.done,6)&&!homeOn())?' gate cur':' cur'}else cls+=' lock';
   const dy=l.y<200?-28:34;return `<g class="${cls}" data-n="${l.n}" tabindex="0" role="button" aria-label="Station ${l.n} ${l.name}"><circle class="ring" cx="${l.x}" cy="${l.y}" r="22"/><text x="${l.x}" y="${l.y+6}">${i<S.done?'✓':l.n}</text><text class="lbl" x="${l.x}" y="${l.y+dy}">${l.name}</text></g>`}).join('')}
+ ${(()=>{const open=S.bossDone||S.done>=12||(!homeOn()&&!S.bossDone);const cls='st hq'+(S.bossDone?' done':S.done>=12?' cur':open?' emerg':' lock');return `<g class="${cls}" data-n="13" tabindex="0" role="button" aria-label="Zentrale Turnhalle"><circle class="ring" cx="${HQ.x}" cy="${HQ.y}" r="26"/><text x="${HQ.x}" y="${HQ.y+7}">${S.bossDone?'✓':'🛡'}</text><text class="lbl" x="${HQ.x}" y="${HQ.y+40}">Turnhalle · Zentrale</text></g>`})()}
  </svg>`}
 function renderMap(){
  const gateBlocked=S.gate<Math.min(S.done,6)&&!homeOn()&&S.done<12;
@@ -349,12 +357,12 @@ function renderMap(){
   <div class="row"><span class="pill">${S.done} / 12 gereinigt</span>${homeOn()?'<span class="pill home">Heim-Modus</span>':''}</div></div>
  <div class="card">
   <p class="eyebrow center">Anti-Virus-Code</p>
-  <div class="letters">${LEVELS.slice(0,11).map((l,i)=>`<span class="${i<S.done?'got':''}">${i<S.done?l.letter:'?'}</span>`).join('')}</div>
-  <p class="small center" id="mapmsg">${S.done>=12&&!S.bossDone?'Angreifer enttarnt! Jetzt zum Blitzstein und den Anti-Virus-Code eingeben.':S.done>=12?'Alle Zombies besiegt! Holt euch euer Diplom.':gateBlocked?'Station '+(S.done+1)+' ist gesperrt. Wartet auf das Signal der Cyber-Abwehr-Zentrale.':'Klickt auf die blinkende Station '+(S.done+1)+': '+LEVELS[S.done].name+'.'}</p>
+  <div class="letters">${LEVELS.slice(0,12).map((l,i)=>`<span class="${i<S.done?'got':''}">${i<S.done?l.letter:'?'}</span>`).join('')}</div>
+  <p class="small center" id="mapmsg">${S.done>=12&&!S.bossDone?'Angreifer enttarnt! Jetzt zur Turnhalle: Die Zentrale wartet auf den Anti-Virus-Code.':S.done>=12?'Alle Zombies besiegt! Holt euch euer Diplom.':S.bossDone?'Virus vernichtet! Die restlichen Stationen könnt ihr trotzdem noch aufräumen.':gateBlocked?'Station '+(S.done+1)+' ist gesperrt. Wartet auf das Signal der Cyber-Abwehr-Zentrale.':'Klickt auf die blinkende Station '+(S.done+1)+': '+LEVELS[S.done].name+'.'}</p>
   <div class="mapbox">${mapSVG()}</div>
   <div class="row" style="justify-content:space-between">
-   <div class="row"><button class="sec" id="savebtn">Spielstand-Code</button>${S.done>0?'<button class="sec" id="dipl">Diplom</button>':''}</div>
-   <div class="row">${S.done>=12&&!S.bossDone?'<button class="warn" id="bossbtn">Anti-Virus-Code eingeben</button>':S.done>=12?'<button id="finish">Zum Endbildschirm</button>':gateBlocked?'<button class="warn" id="gatebtn">Zur Schleuse</button>':'<button id="play">Station '+(S.done+1)+' starten</button>'}</div>
+   <div class="row"><button class="sec" id="savebtn">Spielstand-Code</button>${S.done>0?'<button class="sec" id="dipl">Diplom</button>':''}${S.done<12&&!S.bossDone&&!homeOn()?'<button class="ghost" id="bossbtn2">Notfall: zur Turnhalle</button>':''}</div>
+   <div class="row">${S.done>=12&&!S.bossDone?'<button class="warn" id="bossbtn">Zur Turnhalle</button>':S.done>=12?'<button id="finish">Zum Endbildschirm</button>':gateBlocked?'<button class="warn" id="gatebtn">Zur Schleuse</button>':'<button id="play">Station '+(S.done+1)+' starten</button>'}</div>
   </div>
   <div id="saveout" hidden class="stack"><div class="savecode">${saveCode()}</div><p class="small center">Mit diesem Code könnt ihr an einem anderen Computer weiterspielen: beim Start auf «Spielstand-Code eingeben».</p></div>
  </div></div>`);
@@ -363,9 +371,10 @@ function renderMap(){
  const d=c.querySelector('#dipl');if(d)d.onclick=()=>{S.view='diploma';save();render()};
  const f=c.querySelector('#finish');if(f)f.onclick=()=>{S.view='win';save();render()};
  const bb=c.querySelector('#bossbtn');if(bb)bb.onclick=()=>{S.view='boss';save();render()};
+ const bb2=c.querySelector('#bossbtn2');if(bb2)bb2.onclick=()=>{S.view='boss';save();render()};
  const g=c.querySelector('#gatebtn');if(g)g.onclick=()=>{S.view='gate';save();render()};
  const p=c.querySelector('#play');if(p)p.onclick=()=>{S.view='level';save();render()};
- c.querySelectorAll('.st').forEach(st=>{const n=+st.dataset.n;const open=()=>{if(n<=S.done){S.view='review';S.reviewLevel=n;save();render();return}if(n!==S.done+1)return;S.view=gateBlocked?'gate':'level';save();render()};st.addEventListener('click',open);st.addEventListener('keydown',e=>{if(e.key==='Enter')open()})});
+ c.querySelectorAll('.st').forEach(st=>{const n=+st.dataset.n;const open=()=>{if(n===13){if(S.bossDone||S.done>=12||!homeOn()){S.view='boss';save();render()}return}if(n<=S.done){S.view='review';S.reviewLevel=n;save();render();return}if(n!==S.done+1)return;S.view=gateBlocked?'gate':'level';save();render()};st.addEventListener('click',open);st.addEventListener('keydown',e=>{if(e.key==='Enter')open()})});
 }
 
 // ---------- gate ----------
@@ -468,7 +477,7 @@ function renderLevel(n){const L=LEVELS[n-1];const key='l'+n;S.hintsShown[key]=S.
  if(n===12){const lines=[['23:51:02','192.168.1.14','LOGIN OK','user=sekretariat'],['23:52:40','192.168.1.22','DATEI','backup.zip gespeichert'],['23:58:11','192.168.1.9','LOGIN OK','user=hauswart'],['00:00:03','10.0.0.66','LOGIN FEHLER','user=admin passwort falsch'],['00:00:04','10.0.0.66','LOGIN FEHLER','user=admin passwort falsch'],['00:00:04','10.0.0.66','LOGIN FEHLER','user=admin passwort falsch'],['00:00:05','192.168.1.14','LOGOUT','user=sekretariat'],['00:00:05','10.0.0.66','LOGIN FEHLER','user=admin passwort falsch'],['00:00:06','10.0.0.66','LOGIN FEHLER','user=admin passwort falsch'],['00:00:06','10.0.0.66','LOGIN FEHLER','user=admin passwort falsch'],['00:00:07','10.0.0.66','LOGIN OK','user=admin'],['00:00:09','10.0.0.66','BEFEHL','virus.exe gestartet'],['00:00:31','10.0.0.66','BEFEHL','sende an 12 computer'],['00:03:15','192.168.1.9','LOGOUT','user=hauswart'],['00:14:50','192.168.1.31','LOGIN FEHLER','user=lena passwort falsch'],['00:14:58','192.168.1.31','LOGIN OK','user=lena']];
   const b=el(`<div class="stack"><p class="eyebrow">Logbuch blitzstein-server · 31.10. → 1.11.</p><div class="log">${lines.map(l=>`<span class="${l[2].includes('FEHLER')?'f':l[2]==='LOGIN OK'?'o':''}">${l[0]}  ${l[1].padEnd(14)}  ${l[2].padEnd(13)}  ${l[3]}</span>`).join('\n')}</div>
   <div class="stack" id="step1"><label class="eyebrow" for="ipin">Schritt 1: IP-Adresse des Angreifers</label><div class="row"><input id="ipin" class="mono" placeholder="z.B. 192.168.1.1" autocomplete="off"><button id="ipgo">Prüfen</button></div></div>
-  <div class="stack" id="step2" hidden><p class="feedback good">Angreifer identifiziert! Jetzt der Anti-Virus-Code.</p><div class="letters">${LEVELS.slice(0,11).map(l=>`<span class="got">${l.letter}</span>`).join('')}</div><label class="eyebrow" for="code12">Schritt 2: Anti-Virus-Code (11 Buchstaben)</label><div class="row"><input id="code12" class="code" placeholder="CODE" autocomplete="off"><button id="codego">Virus vernichten</button></div></div></div>`);ui.appendChild(b);
+  <div class="stack" id="step2" hidden><p class="feedback good">Angreifer identifiziert! Jetzt der Anti-Virus-Code.</p><div class="letters">${LEVELS.slice(0,12).map(l=>`<span class="got">${l.letter}</span>`).join('')}</div><label class="eyebrow" for="code12">Schritt 2: Anti-Virus-Code (11 Buchstaben)</label><div class="row"><input id="code12" class="code" placeholder="CODE" autocomplete="off"><button id="codego">Virus vernichten</button></div></div></div>`);ui.appendChild(b);
   const ipgo=guard(()=>{if(match(b.querySelector('#ipin').value,L.ip)){win()}else wrong('Das ist nicht die Adresse des Angreifers.')});b.querySelector('#ipgo').onclick=ipgo;b.querySelector('#ipin').addEventListener('keydown',e=>{if(e.key==='Enter')ipgo()});
   const cgo=guard(()=>{match(b.querySelector('#code12').value,L.answers)?win():wrong('Der Code stimmt nicht. Prüft die Reihenfolge eurer Buchstaben.')});b.querySelector('#codego').onclick=cgo;b.querySelector('#code12').addEventListener('keydown',e=>{if(e.key==='Enter')cgo()})}
 }
@@ -476,26 +485,26 @@ function renderLevel(n){const L=LEVELS[n-1];const key='l'+n;S.hintsShown[key]=S.
 // ---------- final boss page ----------
 function renderBoss(){const L=LEVELS[11];animClear();
  const c=el(`<div class="stack boss">
- <div class="center stack"><p class="eyebrow" style="color:var(--danger)">Blitzstein · Steuer-Computer des Virus</p><h1 style="color:var(--danger);text-shadow:0 0 24px rgba(255,95,126,.6)">Angreifer gefunden: 10.0.0.66</h1><p>Der Virus wehrt sich. Nur der vollständige Anti-Virus-Code kann ihn vernichten. Gebt die 11 Buchstaben eurer Stationen in der richtigen Reihenfolge ein.</p></div>
+ <div class="center stack"><p class="eyebrow" style="color:var(--danger)">Turnhalle · Cyber-Abwehr-Zentrale</p><h1 style="color:var(--danger);text-shadow:0 0 24px rgba(255,95,126,.6)">${S.done>=12?'Zurück in der Zentrale':'Notfall in der Zentrale'}</h1><p>${S.done>=12?'Der Angreifer ist enttarnt (10.0.0.66), doch der Virus wehrt sich. Vom Steuer-Computer in der Turnhalle aus kann nur der vollständige Anti-Virus-Code ihn vernichten. Gebt die 12 Buchstaben eurer Stationen in der richtigen Reihenfolge ein.':'Die Cyber-Abwehr-Zentrale schlägt Alarm: Der Virus muss jetzt gestoppt werden. Ihr habt '+S.done+' von 12 Buchstaben. Die fehlenden bekommt ihr von der Zentrale, oder ihr erratet sie: Zusammen ergeben sie ein deutsches Wort für ein Programm gegen Viren.'}</p></div>
  <div class="card" style="border-color:var(--danger)">
-  <div class="center stack" style="gap:4px"><p class="eyebrow" style="color:var(--danger)">Selbstzerstörung des Botnetzes in</p><div class="bomb" id="bomb">05:00</div><p class="small" id="bombmsg">Danach verteilt sich der Virus neu und ihr müsst von vorne beginnen.</p></div>
-  <div class="letters">${LEVELS.slice(0,11).map(l=>`<span class="got">${l.letter}</span>`).join('')}</div>
-  <div class="task"><label class="eyebrow" for="code12">Anti-Virus-Code</label><div class="row"><input id="code12" class="code" placeholder="11 BUCHSTABEN" autocomplete="off" maxlength="20" style="flex:1;font-size:1.3rem"><button id="codego" style="background:var(--danger);color:#fff">Virus vernichten</button></div><div class="feedback" id="fb"></div></div>
-  <div class="row"><button class="sec" id="back">Zurück zur Station</button></div>
+  <div class="center stack" style="gap:4px"><p class="eyebrow" style="color:var(--danger)">Der Virus verteilt sich neu in</p><div class="bomb" id="bomb">05:00</div><p class="small" id="bombmsg">Danach verteilt sich der Virus neu und ihr müsst von vorne beginnen.</p></div>
+  <div class="letters">${LEVELS.slice(0,12).map((l,i)=>`<span class="${i<S.done?'got':''}">${i<S.done?l.letter:'?'}</span>`).join('')}</div>
+  <div class="task"><label class="eyebrow" for="code12">Anti-Virus-Code</label><div class="row"><input id="code12" class="code" placeholder="12 BUCHSTABEN" autocomplete="off" maxlength="20" style="flex:1;font-size:1.3rem"><button id="codego" style="background:var(--danger);color:#fff">Virus vernichten</button></div><div class="feedback" id="fb"></div></div>
+  <div class="row"><button class="sec" id="back">Zurück</button></div>
  </div></div>`);app.appendChild(c);
- c.querySelector('#back').onclick=()=>{S.view='review';S.reviewLevel=12;save();render()};
+ c.querySelector('#back').onclick=()=>{if(S.done>=12){S.view='review';S.reviewLevel=12}else S.view='map';save();render()};
  const BOMB=300;if(!S.bossStart||Date.now()-S.bossStart>BOMB*1000*2){S.bossStart=Date.now();save()}
  const bomb=c.querySelector('#bomb');let bt=null;const bombTick=()=>{if(!document.body.contains(bomb)){clearInterval(bt);return}let left=Math.max(0,BOMB-Math.floor((Date.now()-S.bossStart)/1000));bomb.textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');bomb.classList.toggle('hot',left<=30);if(left===0){clearInterval(bt);S.bossStart=Date.now();save();c.querySelector('#bombmsg').textContent='Puh, der Virus hat sich neu versteckt. Die Uhr läuft nochmals, gebt den Code jetzt ein!';bt=setInterval(bombTick,250)}};bombTick();bt=setInterval(bombTick,250);
  const fb=c.querySelector('#fb'),btn=c.querySelector('#codego'),inp=c.querySelector('#code12');let lockUntil=0,t=null;
  const tick=()=>{const l=lockUntil-Date.now();if(l>0){btn.disabled=true;fb.className='feedback bad';fb.textContent='Der Code stimmt nicht. Prüft die Reihenfolge eurer Buchstaben. Nächster Versuch in '+Math.ceil(l/1000)+' s.'}else{btn.disabled=false;if(t){clearInterval(t);t=null}fb.textContent=fb.textContent.replace(/ Nächster Versuch.*$/,'')}};
- const go=()=>{if(lockUntil>Date.now())return;if(match(inp.value,L.answers)){clearInterval(bt);S.done=Math.max(S.done,12);S.bossDone=true;S.bossStart=0;S.view='win';save();matrixFinale(()=>render())}else{S.wrong.l12=(S.wrong.l12||0)+1;lockUntil=Date.now()+10000;save();tick();t=setInterval(tick,500)}};
+ const go=()=>{if(lockUntil>Date.now())return;if(match(inp.value,L.answers)){clearInterval(bt);S.bossDone=true;S.bossStart=0;S.view='win';save();matrixFinale(()=>render())}else{S.wrong.l12=(S.wrong.l12||0)+1;lockUntil=Date.now()+10000;save();tick();t=setInterval(tick,500)}};
  btn.onclick=go;inp.addEventListener('keydown',e=>{if(e.key==='Enter')go()});inp.focus()}
 function matrixFinale(done){const ov=el(`<div class="matrix"><canvas></canvas>
  <div class="mtext" id="m1"><p class="eyebrow" style="color:var(--danger)">⚠ Warnung</p><h1 class="glitch" style="color:var(--danger)">VIRUS WEHRT SICH</h1><p class="mono" id="m1t">Zombie-Computer antworten nicht …</p></div>
- <div class="mtext" id="m2" hidden><p class="eyebrow" style="color:var(--acc)">Anti-Virus-Code wird eingespielt</p><div class="letters" id="mlet">${'VIRENSCHUTZ'.split('').map(ch=>`<span style="opacity:0">${ch}</span>`).join('')}</div><div class="meter" style="width:min(420px,80vw);height:18px"><i id="mbar" style="background:var(--acc)"></i></div><p class="mono" id="m2t">Löschvorgang 0 %</p></div>
+ <div class="mtext" id="m2" hidden><p class="eyebrow" style="color:var(--acc)">Anti-Virus-Code wird eingespielt</p><div class="letters" id="mlet">${'VIRENSCANNER'.split('').map(ch=>`<span style="opacity:0">${ch}</span>`).join('')}</div><div class="meter" style="width:min(420px,80vw);height:18px"><i id="mbar" style="background:var(--acc)"></i></div><p class="mono" id="m2t">Löschvorgang 0 %</p></div>
  <div class="mtext" id="m3" hidden><p class="eyebrow" style="color:var(--acc)">Anti-Virus-Code akzeptiert</p><h1>VIRUS VERNICHTET</h1><p>Alle 12 Zombie-Computer sind befreit. Fällanden ist sicher.</p><button id="mnext" hidden>Weiter</button></div></div>`);document.body.appendChild(ov);
  const cv=ov.querySelector('canvas'),ctx=cv.getContext('2d');const fit=()=>{cv.width=innerWidth;cv.height=innerHeight};fit();addEventListener('resize',fit);
- const chars='VIRENSCHUTZ01アイウエオカキクケコ';const fs=18;let cols=Math.floor(cv.width/fs),drops=Array.from({length:cols},()=>Math.random()*-50);const start=Date.now();let raf,phase=0;
+ const chars='VIRENSCANNER01アイウエオカキクケコ';const fs=18;let cols=Math.floor(cv.width/fs),drops=Array.from({length:cols},()=>Math.random()*-50);const start=Date.now();let raf,phase=0;
  const zombies=[],sparks=[];const ZT=['🧟','🧟‍♀️','🧟‍♂️','💀','🦠'];const letters=ov.querySelectorAll('#mlet span');
  const msgs=['Zombie-Computer antworten nicht …','Schulhaus: BLOCKIERT','Coop: BLOCKIERT','Gegenangriff auf 10.0.0.66 …','Code wird geladen …'];
  const draw=()=>{const e=Date.now()-start;const W=cv.width,H=cv.height;
@@ -509,7 +518,7 @@ function matrixFinale(done){const ov=el(`<div class="matrix"><canvas></canvas>
   const red=phase===0,mix=phase===1?Math.min(1,(e-3000)/4000):1;
   for(let i=0;i<drops.length;i++){const ch=chars[Math.floor(Math.random()*chars.length)];const g=red?false:(i/drops.length)<mix;ctx.fillStyle=g?(Math.random()<.1?'#dfffd0':'#8dff5e'):(Math.random()<.1?'#ffd0d8':'#ff5f7e');ctx.fillText(ch,i*fs,drops[i]*fs);if(drops[i]*fs>H&&Math.random()>.975)drops[i]=0;drops[i]+=red?1.2:.6}
   if(phase===0){ov.classList.toggle('shake',Math.floor(e/400)%2===0);if(Math.floor(e/120)%7===0){ctx.fillStyle='rgba(255,95,126,.18)';ctx.fillRect(0,0,W,H)}ov.querySelector('#m1t').textContent=msgs[Math.min(msgs.length-1,Math.floor(e/650))]}
-  if(phase===1){const p=Math.min(100,Math.round((e-3000)/50));ov.querySelector('#mbar').style.width=p+'%';ov.querySelector('#m2t').textContent='Löschvorgang '+p+' %';letters.forEach((l,i)=>{if(p>i*9){l.style.opacity=1;l.classList.add('got')}})}
+  if(phase===1){const p=Math.min(100,Math.round((e-3000)/50));ov.querySelector('#mbar').style.width=p+'%';ov.querySelector('#m2t').textContent='Löschvorgang '+p+' %';letters.forEach((l,i)=>{if(p>i*8){l.style.opacity=1;l.classList.add('got')}})}
   if(phase>=2){ctx.font='34px serif';zombies.forEach(z=>{z.x+=z.vx;z.y+=z.vy;z.vy+=.35;z.r+=z.vr;z.a-=.012;if(z.a<=0)return;ctx.save();ctx.globalAlpha=Math.max(0,z.a);ctx.translate(z.x,z.y);ctx.rotate(z.r);ctx.fillText(z.t,-17,12);ctx.restore()});
    sparks.forEach(sp=>{sp.x+=sp.vx;sp.y+=sp.vy;sp.vy+=.12;sp.vx*=.985;sp.a-=.01;if(sp.a<=0)return;ctx.globalAlpha=Math.max(0,sp.a);ctx.fillStyle=sp.c;ctx.fillRect(sp.x,sp.y,3,3)});ctx.globalAlpha=1;
    if(phase===2&&Math.random()<.08){const an=Math.random()*6.28;for(let i=0;i<30;i++){const a2=Math.random()*6.28,sp2=2+Math.random()*6;sparks.push({x:W*(.2+Math.random()*.6),y:H*(.2+Math.random()*.5),vx:Math.cos(a2)*sp2,vy:Math.sin(a2)*sp2,a:1,c:['#8dff5e','#ffb347','#fff','#ff5f7e'][i%4]})}}}
@@ -541,21 +550,21 @@ const ANIM={
 function renderSuccess(L){animClear();app.innerHTML='';window.scrollTo(0,0);const last=L.n===12;
  const c=el(`<div class="stack"><div class="center stack"><p class="eyebrow">Station ${L.n} · ${L.name}</p><h1 style="font-size:clamp(2rem,6vw,3.2rem)">${last?'Virus vernichtet!':'Computer gereinigt!'}</h1></div>
  <div class="card">
-  ${last?'':`<div class="center stack"><p class="eyebrow">Euer Buchstabe</p><div class="letters"><span class="got" style="width:60px;height:70px;font-size:2rem">${L.letter}</span></div><p class="small">Buchstabe ${L.n} von 11 des Anti-Virus-Codes</p></div>`}
+  ${`<div class="center stack"><p class="eyebrow">Euer Buchstabe</p><div class="letters"><span class="got" style="width:60px;height:70px;font-size:2rem">${L.letter}</span></div><p class="small">Buchstabe ${L.n} von 12 des Anti-Virus-Codes</p></div>`}
   <div class="anim stack" id="anim"></div>
   <div class="merke"><p class="eyebrow">Merke</p><p>${L.merke}</p></div>
-  ${last?'<p class="story">Der Angreifer ist enttarnt, aber der Virus läuft noch. Jetzt braucht es den Anti-Virus-Code aus euren 11 Buchstaben.</p>':''}
+  ${last?'<p class="story">Der Angreifer ist enttarnt, aber der Virus läuft noch. Zurück ins Dorf: In der Turnhalle wartet die Zentrale auf den Anti-Virus-Code aus euren 12 Buchstaben.</p>':''}
   <div class="stack"><p class="eyebrow center">Spielstand-Code (zum Weiterspielen an einem anderen Computer)</p><div class="savecode">${saveCode()}</div></div>
-  <div class="row" style="justify-content:center"><button class="sec" id="backst">Zurück zur Station</button><button id="cont">${last?'Zum Anti-Virus-Code →':'Weiter zur Karte'}</button></div>
+  <div class="row" style="justify-content:center"><button class="sec" id="backst">Zurück zur Station</button><button id="cont">${last?'Zur Turnhalle →':'Weiter zur Karte'}</button></div>
  </div></div>`);app.appendChild(c);runAnim(L.n,c.querySelector('#anim'));c.querySelector('#cont').onclick=()=>{S.view=last?'boss':'map';save();render()};c.querySelector('#backst').onclick=()=>{S.view='review';S.reviewLevel=L.n;save();render()}}
 
-function renderWin(){const c=el(`<div class="stack"><div class="center stack"><p class="eyebrow">Cyber-Abwehr Fällanden</p><h1>Fällanden ist gerettet</h1><p>Alle 12 Zombie-Computer sind gereinigt, das Botnetz ist zerschlagen. Die Dorfbewohner haben ihre Computer zurück.</p></div>
+function renderWin(){const c=el(`<div class="stack"><div class="center stack"><p class="eyebrow">Cyber-Abwehr Fällanden</p><h1>Fällanden ist gerettet</h1><p>${S.done>=12?'Alle 12 Zombie-Computer sind gereinigt, das Botnetz ist zerschlagen. Die Dorfbewohner haben ihre Computer zurück.':'Der Virus ist vernichtet und das Botnetz zerschlagen. '+S.done+' von 12 Computern habt ihr selbst gereinigt; die restlichen Stationen warten zuhause auf euch.'}</p></div>
  <div class="card"><h3>Die drei wichtigsten Regeln</h3><p>1. <b>Lange Passwörter</b>, für jede Seite ein anderes, und niemandem verraten.</p><p>2. <b>Nicht hetzen lassen.</b> Wer Druck macht, will dich austricksen. Langsam werden, nachfragen.</p><p>3. <b>Hacken nur mit Erlaubnis.</b> Gute Hacker helfen den Besitzern, Lücken zu finden. Böse Hacker nutzen sie aus.</p>
  <div class="row" style="justify-content:center"><button id="dipl">Diplom anzeigen</button><button class="sec" id="map">Zur Karte</button></div></div></div>`);app.appendChild(c);c.querySelector('#dipl').onclick=()=>{S.view='diploma';save();render()};c.querySelector('#map').onclick=()=>{S.view='map';save();render()}}
 
-function renderDiploma(){const full=S.done>=12&&S.bossDone;const d=new Date();const ds=d.toLocaleDateString('de-CH',{day:'numeric',month:'long',year:'numeric'});
+function renderDiploma(){const d=new Date();const ds=d.toLocaleDateString('de-CH',{day:'numeric',month:'long',year:'numeric'});
  const c=el(`<div class="stack"><div class="topbar"><p class="eyebrow">Diplom</p><button class="sec" id="back">Zur Karte</button></div>
- <div class="diploma"><div class="seal">🛡️</div><h2>Cyber-Abwehr Fällanden</h2><p class="eyebrow" style="color:#6b4a12">Diplom</p><p>Das Team</p><p class="big">${esc(S.team)}</p><p>hat in der Zombie-Nacht in Fällanden</p><p class="big">${S.done} von 12 Zombie-Computern gereinigt</p><p>${full?'und den Virus am Blitzstein endgültig vernichtet.':'und darf sich jetzt offiziell Cyber-Abwehr-Rekrut nennen.'}</p><p class="small" style="color:#6b5a3a">${ds} · Begabtenförderung Informatik, Schule Fällanden</p>
+ <div class="diploma"><div class="seal">🛡️</div><h2>Cyber-Abwehr Fällanden</h2><p class="eyebrow" style="color:#6b4a12">Diplom</p><p>Das Team</p><p class="big">${esc(S.team)}</p><p>hat in der Zombie-Nacht in Fällanden</p><p class="big">${S.done} von 12 Zombie-Computern gereinigt</p><p>${S.bossDone?'und den Virus von der Zentrale aus endgültig vernichtet.':'und darf sich jetzt offiziell Cyber-Abwehr-Rekrut nennen.'}</p><p class="small" style="color:#6b5a3a">${ds} · Begabtenförderung Informatik, Schule Fällanden</p>
  <hr style="border:0;border-top:1px solid #d9c9a4;width:60%"><p style="font-size:.95rem"><b>Zuhause weiterspielen:</b> Öffne den Spiel-Link und hänge am Ende das Geheimwort an:<br><span class="mono" style="font-size:1.1rem">#zombiejaeger</span><br>Dann sind alle Schleusen offen. Spielstand-Code: <span class="mono">${saveCode()}</span></p></div>
  <p class="small center">Tipp: Mach einen Screenshot vom Diplom.</p></div>`);app.appendChild(c);c.querySelector('#back').onclick=()=>{S.view='map';save();render()}}
 
